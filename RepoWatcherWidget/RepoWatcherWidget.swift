@@ -19,10 +19,21 @@ struct Provider: TimelineProvider {
     }
 
     func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
-        var entries: [RepoEntry] = []
-
-        let timeline = Timeline(entries: entries, policy: .atEnd)
-        completion(timeline)
+        Task {
+            let nextUpdateDate = Date().addingTimeInterval(12 * 60 * 60) // 12 hours in seconds
+            
+            do {
+                let repo = try await NetworkManager.shared.getRepo(atUrl: RepoURL.publish)
+                let entry = RepoEntry(date: .now, repo: repo)
+                let timeline = Timeline(entries: [entry], policy: .after(nextUpdateDate))
+                completion(timeline)
+            } catch {
+                print("❌ Error fetching data: \(error.localizedDescription)")
+            }
+            
+            
+            
+        }
     }
 
 //    func relevances() async -> WidgetRelevances<Void> {
