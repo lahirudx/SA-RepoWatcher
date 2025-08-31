@@ -54,10 +54,19 @@
 		52F40FC02E632837003EB23C /* Exceptions for "RepoWatcher" folder in "RepoWatcherWidgetExtension" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				Assets.xcassets,
 				NetworkManager.swift,
 				Repository.swift,
 			);
 			target = 52F40F9F2E631903003EB23C /* RepoWatcherWidgetExtension */;
+		};
+		52F40FCC2E649EE3003EB23C /* Exceptions for "RepoWatcherWidget" folder in "RepoWatcher" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				MockData.swift,
+				RepoMediumView.swift,
+			);
+			target = 52F40F8D2E631896003EB23C /* RepoWatcher */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
@@ -73,6 +82,7 @@
 		52F40FA62E631903003EB23C /* RepoWatcherWidget */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
+				52F40FCC2E649EE3003EB23C /* Exceptions for "RepoWatcherWidget" folder in "RepoWatcher" target */,
 				52F40FB12E631904003EB23C /* Exceptions for "RepoWatcherWidget" folder in "RepoWatcherWidgetExtension" target */,
 			);
 			path = RepoWatcherWidget;
